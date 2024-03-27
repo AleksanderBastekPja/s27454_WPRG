@@ -1,0 +1,36 @@
+<?php
+
+// zadanie 1
+
+$fruits = array ("jablko", "banan", "pomarancza");
+
+foreach ($fruits as $key => $value) {
+	for ($i=strlen($value)-1; $i>=0; $i--) {
+		echo $value[$i];
+	}
+	echo "\n";
+	if ($value[0] == "p") echo "owoc: $value zaczyna sie na litere p";
+}
+
+// zadanie 2
+
+function isPrime($n, $i = 2)
+{
+    if ($n <= 2)
+        return ($n == 2) ? true : false;
+    if ($n % $i == 0)
+        return false;
+    if ($i * $i > $n)
+        return true;
+ 
+    return isPrime($n, $i + 1);
+}
+
+function genPrimeRange($start, $stop) {
+	for ($i=$start;$i<=$stop;$i++) {
+		if(isPrime($i)) echo "$i, ";
+	}
+}
+genPrimeRange(10,100);
+
+
